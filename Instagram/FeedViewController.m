@@ -10,6 +10,10 @@
 #import "Parse.h"
 #import "AppDelegate.h"
 #import "LoginViewController.h"
+#import "PostViewController.h"
+
+
+
 @interface FeedViewController () <UITableViewDelegate,UITableViewDataSource>
 
 
@@ -20,8 +24,28 @@
 
 
 
+
+
+
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    PFQuery *postQuery = [Post query];
+    [postQuery orderByDescending:@"createdAt"];
+    [postQuery includeKey:@"author"];
+    postQuery.limit = 20;
+    
+    // fetch data asynchronously
+    [postQuery findObjectsInBackgroundWithBlock:^(NSArray<Post *> * _Nullable posts, NSError * _Nullable error) {
+        if (posts) {
+            // do something with the data fetched
+        }
+        else {
+            // handle error
+        }
+    }];
     // Do any additional setup after loading the view.
 }
 

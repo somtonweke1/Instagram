@@ -16,6 +16,7 @@
 		D39C525C20F6980F00D743D9 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D39C525B20F6980F00D743D9 /* LoginViewController.m */; };
 		D39C525F20F6A4BE00D743D9 /* FeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D39C525E20F6A4BE00D743D9 /* FeedViewController.m */; };
 		D39C526220F7F94700D743D9 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D39C526120F7F94700D743D9 /* CameraViewController.m */; };
+		D39C526520F7FC7100D743D9 /* PostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D39C526420F7FC7100D743D9 /* PostViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,8 @@
 		D39C525E20F6A4BE00D743D9 /* FeedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeedViewController.m; sourceTree = "<group>"; };
 		D39C526020F7F94700D743D9 /* CameraViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
 		D39C526120F7F94700D743D9 /* CameraViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
+		D39C526320F7FC7100D743D9 /* PostViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostViewController.h; sourceTree = "<group>"; };
+		D39C526420F7FC7100D743D9 /* PostViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostViewController.m; sourceTree = "<group>"; };
 		FA28E33226912EDB39FC7FF1 /* Pods-Instagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instagram.release.xcconfig"; path = "Pods/Target Support Files/Pods-Instagram/Pods-Instagram.release.xcconfig"; sourceTree = "<group>"; };
 		FA37F5C3E34CDDE4696F9D1C /* libPods-Instagram.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Instagram.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -89,6 +92,8 @@
 				D39C525E20F6A4BE00D743D9 /* FeedViewController.m */,
 				D39C523520F6921900D743D9 /* Assets.xcassets */,
 				D39C523720F6921900D743D9 /* LaunchScreen.storyboard */,
+				D39C526320F7FC7100D743D9 /* PostViewController.h */,
+				D39C526420F7FC7100D743D9 /* PostViewController.m */,
 				D39C523A20F6921900D743D9 /* Info.plist */,
 				D39C523B20F6921900D743D9 /* main.m */,
 				D39C526020F7F94700D743D9 /* CameraViewController.h */,
@@ -218,6 +223,7 @@
 			files = (
 				D39C526220F7F94700D743D9 /* CameraViewController.m in Sources */,
 				D39C523C20F6921900D743D9 /* main.m in Sources */,
+				D39C526520F7FC7100D743D9 /* PostViewController.m in Sources */,
 				D39C522E20F6921700D743D9 /* AppDelegate.m in Sources */,
 				D39C525F20F6A4BE00D743D9 /* FeedViewController.m in Sources */,
 				D39C525C20F6980F00D743D9 /* LoginViewController.m in Sources */,
