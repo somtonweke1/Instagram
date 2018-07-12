@@ -13,7 +13,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" sceneMemberID="viewController">
+                <viewController restorationIdentifier="LoginViewController" storyboardIdentifier="LoginViewController" id="BYZ-38-t0r" customClass="LoginViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -138,6 +138,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Post" id="n6c-nc-4QJ">
                             <connections>
                                 <action selector="compose:" destination="A1b-qK-7CH" id="wbr-SQ-7Ud"/>
+                                <segue destination="M5L-ry-X96" kind="show" id="CcI-Eg-Zgf"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -151,6 +152,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zAD-Yv-gd3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1888.8" y="133.5832083958021"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="pHj-BA-8oN">
+            <objects>
+                <viewController id="M5L-ry-X96" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vGG-ib-x3F">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="YBG-3Q-YbO"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1mA-lz-PyP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2746" y="134"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="I9Q-fz-cEA">
