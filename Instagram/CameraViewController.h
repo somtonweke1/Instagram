@@ -10,7 +10,12 @@
 
 @interface CameraViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIImageView *placementPhoto;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *Share;
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *Cancel;
 
+@property (weak, nonatomic) IBOutlet UIButton *TakePicture;
+@property (weak, nonatomic) IBOutlet UITextView *TextFieldforCaption;
 
 @end

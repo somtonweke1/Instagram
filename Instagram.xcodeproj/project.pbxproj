@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		11EBF10D14783274B43684C0 /* libPods-Instagram.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA37F5C3E34CDDE4696F9D1C /* libPods-Instagram.a */; };
+		D38919C820F931940091FE71 /* PostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D38919C720F931940091FE71 /* PostCell.m */; };
 		D39C522E20F6921700D743D9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D39C522D20F6921700D743D9 /* AppDelegate.m */; };
 		D39C523420F6921700D743D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D39C523220F6921700D743D9 /* Main.storyboard */; };
 		D39C523620F6921900D743D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D39C523520F6921900D743D9 /* Assets.xcassets */; };
@@ -21,6 +22,8 @@
 
 /* Begin PBXFileReference section */
 		78D1597C4F058C4DCAF19132 /* Pods-Instagram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instagram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Instagram/Pods-Instagram.debug.xcconfig"; sourceTree = "<group>"; };
+		D38919C620F931940091FE71 /* PostCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostCell.h; sourceTree = "<group>"; };
+		D38919C720F931940091FE71 /* PostCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostCell.m; sourceTree = "<group>"; };
 		D39C522920F6921700D743D9 /* Instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D39C522C20F6921700D743D9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D39C522D20F6921700D743D9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -98,6 +101,8 @@
 				D39C526120F7F94700D743D9 /* CameraViewController.m */,
 				D39C526620F8006D00D743D9 /* Post.h */,
 				D39C526720F8006D00D743D9 /* Post.m */,
+				D38919C620F931940091FE71 /* PostCell.h */,
+				D38919C720F931940091FE71 /* PostCell.m */,
 			);
 			path = Instagram;
 			sourceTree = "<group>";
@@ -186,10 +191,16 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Instagram/Pods-Instagram-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/Parse/Parse.bundle",
+				"${PODS_ROOT}/ParseUI/ParseUI/Resources/Localization/en.lproj",
+				"${PODS_ROOT}/ParseUI/ParseUI/Resources/Localization/fr.lproj",
+				"${PODS_ROOT}/ParseUI/ParseUI/Resources/Localization/pt-BR.lproj",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Parse.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/en.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/fr.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/pt-BR.lproj",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -225,6 +236,7 @@
 				D39C523C20F6921900D743D9 /* main.m in Sources */,
 				D39C522E20F6921700D743D9 /* AppDelegate.m in Sources */,
 				D39C525F20F6A4BE00D743D9 /* FeedViewController.m in Sources */,
+				D38919C820F931940091FE71 /* PostCell.m in Sources */,
 				D39C525C20F6980F00D743D9 /* LoginViewController.m in Sources */,
 				D39C526820F8006D00D743D9 /* Post.m in Sources */,
 			);

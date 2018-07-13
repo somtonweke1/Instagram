@@ -11,18 +11,7 @@
 #import "Post.h"
 
 
-@interface CameraViewController ()
-@property (weak, nonatomic) IBOutlet UIImageView *placementPhoto;
-- (IBAction)selectButton:(id)sender;
-- (IBAction)DismissViewController:(id)sender;
-@property (weak, nonatomic) IBOutlet UITextView *TextFieldforCaption;
-
-- (IBAction)ShareButton:(id)sender;
-
-
-@end
-@interface FeedViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
-
+@interface CameraViewController ()< UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @end
 
 @implementation CameraViewController
@@ -45,6 +34,9 @@
     // Get the image captured by the UIImagePickerController
     UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
     UIImage *editedImage = info[UIImagePickerControllerEditedImage];
+    
+    editedImage = [self resizeImage:originalImage withSize:CGSizeMake(350, 350)];
+    
     self.placementPhoto.image = editedImage;
     // Do something with the images (based on your use case)
     
@@ -98,4 +90,19 @@
         
     }];
 }
+
+- (UIImage *)resizeImage:(UIImage *)image withSize:(CGSize)size {
+    UIImageView *resizeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
+    
+    resizeImageView.contentMode = UIViewContentModeScaleAspectFill;
+    resizeImageView.image = image;
+    
+    UIGraphicsBeginImageContext(size);
+    [resizeImageView.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return newImage;
+}
+
 @end

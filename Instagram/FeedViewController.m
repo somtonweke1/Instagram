@@ -11,10 +11,16 @@
 #import "AppDelegate.h"
 #import "LoginViewController.h"
 #import "Post.h"
+#import "PostCell.h"
 
 
 
 @interface FeedViewController () <UITableViewDelegate,UITableViewDataSource>
+
+@property(nonatomic ,strong ) NSArray *posts;
+
+@property (weak, nonatomic) IBOutlet UITableView *myTableView;
+
 
 @end
 
@@ -23,35 +29,32 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    PFQuery *postQuery = [Post query];
-    [postQuery orderByDescending:@"createdAt"];
-    [postQuery includeKey:@"author"];
-    postQuery.limit = 20;
+    self.myTableView.dataSource = self;
+    self.myTableView.delegate = self;
     
-    // fetch data asynchronously
-    [postQuery findObjectsInBackgroundWithBlock:^(NSArray<Post *> * _Nullable posts, NSError * _Nullable error) {
-        if (posts) {
-            // do something with the data fetched
-        }
-        else {
-            // handle error
-        }
-    }];
+    //Initialize NSArray for use
+    self.posts = [[NSArray alloc]init];
+    
+    //Call the method to fetch posts
+    [self fetchPosts];
+    
+    self.myTableView.rowHeight = UITableViewAutomaticDimension;
     // Do any additional setup after loading the view.
+    // Initialize a UIRefreshControl
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(beginRefresh:) forControlEvents:UIControlEventValueChanged];
+    [self.myTableView insertSubview:refreshControl atIndex:0];
 }
-
-
-    
-
-
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-
+- (void)beginRefresh: (UIRefreshControl *)refreshControl {
+    [self fetchPosts];
+    [refreshControl endRefreshing];
+}
 
 
 - (IBAction)logOut:(id)sender {
@@ -67,24 +70,46 @@
 }];
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)fetchPosts {
+    
+PFQuery *postQuery = [Post query];
+[postQuery orderByDescending:@"createdAt"];
+[postQuery includeKey:@"author"];
+postQuery.limit = 20;
+
+// fetch data asynchronously
+[postQuery findObjectsInBackgroundWithBlock:^(NSArray<Post *> *_Nullable posts, NSError * _Nullable error) {
+    if (posts) {
+        
+        self.posts = posts;
+        
+        [self.myTableView reloadData];
+        
+        
+        
+        
+        // do something with the data fetched
+    }
+    else {
+        // handle error
+    }
+}];
 }
-*/
 
-/*- (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    <#code#>
+- (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    PostCell *cell= [tableView dequeueReusableCellWithIdentifier:@"PostCell" forIndexPath:indexPath];
+    
+        cell.post = self.posts[indexPath.row];
+    
+    
+    
+    return cell;
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    <#code#>
+    return self.posts.count;
 }
-*/
 
 
 

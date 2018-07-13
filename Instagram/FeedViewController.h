@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface FeedViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *logOut;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *compose;
