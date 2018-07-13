@@ -1,20 +1,15 @@
 //
-//  PostViewController.h
+//  Post.h
 //  Instagram
 //
 //  Created by Somtochukwu Nweke on 7/12/18.
 //  Copyright © 2018 Somtochukwu Nweke. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
 #import <Foundation/Foundation.h>
 #import "Parse/Parse.h"
-@interface PostViewController : UIViewController
 
 
-
-@end
 @interface Post : PFObject<PFSubclassing>
 
 @property (nonatomic, strong) NSString *postID;
@@ -29,5 +24,3 @@
 + (void) postUserImage: ( UIImage * _Nullable )image withCaption: ( NSString * _Nullable )caption withCompletion: (PFBooleanResultBlock  _Nullable)completion;
 
 @end
-
-

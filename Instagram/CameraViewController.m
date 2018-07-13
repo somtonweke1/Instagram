@@ -8,8 +8,17 @@
 
 #import "CameraViewController.h"
 #import <UIKit/UIKit.h>
+#import "Post.h"
+
 
 @interface CameraViewController ()
+@property (weak, nonatomic) IBOutlet UIImageView *placementPhoto;
+- (IBAction)selectButton:(id)sender;
+- (IBAction)DismissViewController:(id)sender;
+@property (weak, nonatomic) IBOutlet UITextView *TextFieldforCaption;
+
+- (IBAction)ShareButton:(id)sender;
+
 
 @end
 @interface FeedViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
@@ -22,13 +31,6 @@
     
     [super viewDidLoad];
     
-    UIImagePickerController *imagePickerVC = [UIImagePickerController new];
-    
-    imagePickerVC.delegate =  self;
-    imagePickerVC.allowsEditing = YES;
-    imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    
-    [self presentViewController:imagePickerVC animated:YES completion:nil];
 
     // Do any additional setup after loading the view.
 }
@@ -43,11 +45,23 @@
     // Get the image captured by the UIImagePickerController
     UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
     UIImage *editedImage = info[UIImagePickerControllerEditedImage];
-    
+    self.placementPhoto.image = editedImage;
     // Do something with the images (based on your use case)
     
     // Dismiss UIImagePickerController to go back to your original view controller
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+
+- (void) selectPhoto {
+    UIImagePickerController *imagePickerVC = [UIImagePickerController new];
+
+    imagePickerVC.delegate =  self;
+    imagePickerVC.allowsEditing = YES;
+    imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+
+    [self presentViewController:imagePickerVC animated:YES completion:nil];
 }
 
 
@@ -62,4 +76,26 @@
 }
 */
 
+- (IBAction)selectButton:(id)sender {
+    [self selectPhoto];
+}
+
+- (IBAction)DismissViewController:(id)sender {
+    [self dismissViewControllerAnimated:(YES) completion:nil];
+    
+}
+- (IBAction)ShareButton:(id)sender {
+    
+
+    
+    [Post postUserImage:self.placementPhoto.image
+            withCaption:self.TextFieldforCaption.text withCompletion:^(BOOL succeeded, NSError *error){
+        if(succeeded){
+             
+            [self dismissViewControllerAnimated:YES completion:nil];
+            
+        }
+        
+    }];
+}
 @end

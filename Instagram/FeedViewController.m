@@ -10,24 +10,15 @@
 #import "Parse.h"
 #import "AppDelegate.h"
 #import "LoginViewController.h"
-#import "PostViewController.h"
+#import "Post.h"
 
 
 
 @interface FeedViewController () <UITableViewDelegate,UITableViewDataSource>
 
-
-
 @end
 
 @implementation FeedViewController
-
-
-
-
-
-
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -50,15 +41,16 @@
 }
 
 
+    
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-
-- (IBAction)compose:(id)sender {
-}
 
 
 
