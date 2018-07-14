@@ -12,8 +12,8 @@
 #import "LoginViewController.h"
 #import "Post.h"
 #import "PostCell.h"
-
-
+#import "DetailsViewController.h"
+#import "CameraViewController.h"
 
 @interface FeedViewController () <UITableViewDelegate,UITableViewDataSource>
 
@@ -111,6 +111,22 @@ postQuery.limit = 20;
     return self.posts.count;
 }
 
-
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    
+    if ([segue.identifier isEqual: @"MoveToDetails"]){
+        PostCell *tappedPost = sender;
+        Post *post = tappedPost.post;
+        
+        DetailsViewController *detailsViewController = [segue destinationViewController];
+        detailsViewController = [segue destinationViewController];
+        detailsViewController.post = post;
+    }
+    else{
+        CameraViewController *composeController = [segue destinationViewController];
+    
+        
+    }
+    
+}
 
 @end
