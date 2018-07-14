@@ -9,6 +9,7 @@
 #import "Post.h"
 #import "ParseUI.h"
 #import "Parse.h"
+#import "DateTools.h"
 
 
 @interface DetailsViewController ()
@@ -29,6 +30,8 @@
     self.ImageView.file = self.post.image;
     [self.ImageView loadInBackground];
   
+    NSString *timeAgoDate = [NSDate shortTimeAgoSinceDate:self.post.createdAt];
+    self.Timestamp.text = timeAgoDate;
     
     //self.ImageView. = self.post.caption;
     

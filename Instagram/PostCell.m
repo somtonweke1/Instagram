@@ -8,9 +8,9 @@
 
 #import "PostCell.h"
 #import "ParseUI.h"
-
-
 #import "Parse.h"
+#import "DateTools.h"
+
 @implementation PostCell
 
 - (void)awakeFromNib {
@@ -30,6 +30,9 @@
     self.UserName.text = self.post.author.username;
     
     self.Caption.text = self.post.caption;
+    
+    NSString *timeAgoDate = [NSDate shortTimeAgoSinceDate:self.post.createdAt];
+    self.Date.text = timeAgoDate;
     
    // self.Date.text= self.post.createdAt;
     self.ImageViiew.file = self.post.image;
